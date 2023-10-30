@@ -4,8 +4,7 @@ const ecran = document.getElementById("ecran")
 let btn = document.getElementsByClassName("btn")
 
 let affichage = ""
-let memoire
-let regex = /\d/
+let regex = /\d+/
 
 console.log(btn)
 for (const element of btn) {
@@ -17,7 +16,7 @@ function gererTouche(event){
     if(regex.test(this.value)){
         affichage = (affichage === "") ? this.value.toString() : affichage + this.value.toString()
         ecran.innerHTML = affichage
-        console.log("if you know")
+        console.log(affichage)
     }else{
         switch (this.value) {
             case "C":
@@ -33,9 +32,7 @@ function gererTouche(event){
                 console.log(this.value)
                 break;
             case "=":
-                affichage = (affichage === this.value) ? this.value.toString() : affichage + this.value.toString()
-                math.evaluate['']
-                console.log("egale")
+                affichage = math.evaluate(affichage.value)  
                 break;
             default:
                 console.log(`Sorry, i'm done.`)
